@@ -4,25 +4,94 @@ Campus Kart is a college-centric grocery delivery system that connects grocery s
 
 ## Live 
 
-Explore the live version of Campus Kart: [Campus Kart Live](https://campus-kart-frontend.vercel.app)
+Explore the live version of Campus Kart: 
+[Campus Kart Live](https://campus-kart-frontend.vercel.app)
+
+[Campus Kart Backend](https://campus-kart-backend.onrender.com)
 
 ## Live Demo
 
-Explore the live version of Campus Kart: [Campus Kart Live](https://www.loom.com/share/06c0747f330e4c758975fecedde1462d?sid=d4430d4e-e382-463e-ac62-770291000fb5)
+Explore the live version of Campus Kart: 
+
+[5 minutes video](https://www.loom.com/share/6150927180c242d29aa4e1ad2cf6b4d4?sid=9fc08fee-9564-4aa7-bc43-d06101570ca1)
+
+[46 seconds video](https://www.loom.com/share/014b528558fc4d18acc5a29307827a1b?sid=09a34462-da59-4938-9a17-ca9d0ad74461)
+
+[3 minutes video](https://www.loom.com/share/1acee61bc6ed47d3b9b67fd5f92bda43?sid=979404b4-d10d-4e98-b870-da4ea8d60cf6)
 
 ## Table of Contents
 
+- [Live-Website](#Live)
+- [Live-Demo](#Live-Demo)
+- [Installation](#installation)
+- [Usage](#usage)
 - [Features](#features)
+- [Frontend Routes](#frontend-routes)
 - [REST API Endpoints](#rest-api-endpoints)
 - [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Folder Structure](#folder-structure)
-- [Usage](#usage)
+
+## Installation
+
+### Prerequisites
+
+- Node.js (v14+)
+- MongoDB instance (local or Atlas)
+- npm or yarn package manager
+
+## Usage
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/coding-demon-panda/campus-kart.git
+   ```
+
+2. Environmental Variables:
+   Create a .env file in the backend directory and include the following:
+   ```bash
+   CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+   CLOUDINARY_API_KEY=your_cloudinary_api_key
+   CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+   EMAIL_USER=your_email
+   EMAIL_PASS=your_email_password
+   ATLASDB_URL=your_mongodb_connection_string
+   SECRET=your_session_secret
+   JWT_SECRET=your_jwt_secret
+   ```
+
+3. Start the Backend Server:
+   ```bash
+   cd campus-kart
+   cd campus-kart-backend
+   nodemon app.js
+   ```
+
+4. Start the Frontend Application (In another terminal):
+   ```bash
+   cd campus-kart
+   cd campus-kart-frontend
+   npm run dev
+   ```
+
+5. Access the Application:
+Open your browser and navigate to the frontend URL http://localhost:3000
+
+6. Sign Up / Log In:
+Sellers can sign up or log in to manage their products and orders.
+   ```bash
+   Sellers are provided a special feature wherein after registering with their shop name they get a unique subdomain tenant url.
+
+   http://shop-name.localhost:3000/
+
+   Further authenticated routes for the sellers are the navigations on the above url.
+   ```
+
+Students can sign up or log in to browse products, add items to their cart, and place orders.
 
 ## Features
 
 ### Core Features
-- **Seller Portal:**  
+- **Seller Portal:**
+  - **Multitenancy** Provides Multitenancy of the BASE_URL for different shop owners.
   - **Store Registration & Authentication:** Secure seller signup, login, and logout functionality using JWT-based authentication.  
   - **Product Management:** Sellers can add, update, and delete products; manage inventory; view order history and customer reviews.  
   - **Promotional Tools:** Create and manage discounts and promotional offers.
@@ -31,7 +100,6 @@ Explore the live version of Campus Kart: [Campus Kart Live](https://www.loom.com
   - **User Registration & Authentication:** Students sign up and log in using their college IDs, ensuring an exclusive campus experience.  
   - **Product Browsing:** View and search products uploaded by sellers with advanced filtering by seller, price range, etc.  
   - **Cart & Order Management:** Students can add products to a cart, update quantities, and place orders with integrated payment options and delivery scheduling.  
-  - **Order Tracking:** Real-time tracking of order status and delivery details.
 
 - **Payment Integration:**  
   - Razorpay integration for secure payment processing.  
@@ -45,47 +113,106 @@ Explore the live version of Campus Kart: [Campus Kart Live](https://www.loom.com
   - Health check API to monitor server uptime.  
   - Comprehensive logging and error handling.
 
+## Frontend Routes
+-- BASE_URL 
+-- Development http://localhost:3000
+-- Production https://campus-kart-frontend.vercel.app
+
+### Unauthenticated Routes
+1. **`{BASE_URL}/** 
+   Landing Page
+
+2. **`{BASE_URL}/home** 
+   Home Page (common to both sellers and students)
+
+3. **`{BASE_URL}/signup** 
+   Signup Page for sellers to register their shops 
+
+4. **`shop-name.{BASE_URL}/login** 
+   Login Page for the sellers for their shop
+
+5. **`{BASE_URL}/usersignup** 
+   Signup Page for students to register with their college id 
+
+6. **`{BASE_URL}/userlogin** 
+   Login Page for the students 
+
+7. **`{BASE_URL}/terms-conditions** 
+   TNC Page for the webapp
+
+### Seller Authenticated Routes
+8. **`shop-name.{BASE_URL}/dashboard** 
+   Dashboard showing summary of the sellers shop
+
+9. **`shop-name.{BASE_URL}/order-pending** 
+   Shows all the pending orders
+   
+10. **`shop-name.{BASE_URL}/order-history** 
+   Shows the order history 
+
+11. **`shop-name.{BASE_URL}/integrations** 
+   Shows all the products provided by him with their details like price, description, name, quantity, etc.
+
+12. **`shop-name.{BASE_URL}/promotions** 
+   Shows the offers given by him on certain orders based on filters.
+
+### Student Authenticated Routes
+13. **`{BASE_URL}/students/dashboard** 
+   Shows all the products provided by all the customers.
+
+14. **`{BASE_URL}/students/cart** 
+   Shows all the products in the cart with more functionalities like checkout, editing quantities, delete from cart etc.
+
+15. **`{BASE_URL}/students/checkout** 
+   Checkout page where a form with address(location autofill), payment mode, and delivery slot has to be filled.
+
+16. **`{BASE_URL}/students/orders** 
+   Shows all the checkouts done by him, the pending and the order history both.
+
 ## REST API Endpoints
+-- BASE_URL 
+-- Development http://localhost:8080
+-- Production https://campus-kart-backend.onrender.com
 
 ### Authentication & User Management
-1. **`POST /api/auth/registration`**  
+1. **`POST {BASE_URL}/registration`**  
    Register a new seller.  
    **Input:** organisationName, userName, userEmailId, userPhoneNumberCountryCode, userPhoneNumber, userPassword
 
-2. **`POST /api/auth/login`**  
+2. **`POST {BASE_URL}/login`**  
    Authenticate a seller and return a JWT token.  
    **Input:** email, password, organisationCname
 
-3. **`POST /api/students/signup`**  
+3. **`POST {BASE_URL}/students/register`**  
    Register a new student.  
    **Input:** studentName, studentEmail, collegeId, studentPassword
 
-4. **`POST /api/students/login`**  
+4. **`POST {BASE_URL}/students/login`**  
    Authenticate a student and return a JWT token.  
    **Input:** studentEmail, studentPassword
 
 ### Product & Cart Management
 5. **Seller Product APIs:**  
-   - **`POST /api/seller/products`**: Add a new product.  
-   - **`GET /api/seller/products`**: Get all products uploaded by a seller.  
-   - **`PUT /api/seller/products/:id`**: Update a product.  
-   - **`DELETE /api/seller/products/:id`**: Delete a product.
+   - **`POST {BASE_URL}/seller/products`**: Add a new product.  
+   - **`GET {BASE_URL}/seller/products`**: Get all products uploaded by a seller.  
+   - **`PUT {BASE_URL}/seller/products/:id`**: Update a product.  
+   - **`DELETE {BASE_URL}/seller/products/:id`**: Delete a product.
 
 6. **Student Product API:**  
-   - **`GET /api/products`**: Retrieve all products from all sellers.
+   - **`GET {BASE_URL}/products`**: Retrieve all products from all sellers.
 
 7. **Cart APIs (Student):**  
-   - **`POST /api/cart`**: Add an item to the cart.  
-   - **`GET /api/cart`**: Retrieve all items in a student's cart.  
-   - **`PUT /api/cart/:id`**: Update quantity of a cart item.  
-   - **`DELETE /api/cart/:id`**: Remove a cart item.  
-   - **`DELETE /api/cart/clear`**: Clear the student’s cart.
+   - **`POST {BASE_URL}/cart`**: Add an item to the cart.  
+   - **`GET {BASE_URL}/cart`**: Retrieve all items in a student's cart.  
+   - **`PUT {BASE_URL}/cart/:id`**: Update quantity of a cart item.  
+   - **`DELETE {BASE_URL}/cart/:id`**: Remove a cart item.  
+   - **`DELETE {BASE_URL}/cart/clear`**: Clear the student’s cart.
 
 8. **Order APIs (Student):**  
-   - **`POST /api/order`**: Create a new order and clear the cart.  
-   - **`GET /api/students/orders`**: Retrieve all orders for a student.
+   - **`POST {BASE_URL}/order`**: Create a new order and clear the cart.  
+   - **`GET {BASE_URL}/students/orders`**: Retrieve all orders for a student.
 
-### Payment Integration
+### Payment Integration (Not completed yet)
 9. **`POST /api/payments/create-order`**  
    Create a payment order using Razorpay.  
    **Input:** amount, currency, order details
@@ -103,6 +230,7 @@ Explore the live version of Campus Kart: [Campus Kart Live](https://www.loom.com
 
 ## Technologies Used
 
+### Backend:
 - **Backend Framework:** Node.js, Express.js
 - **Database:** MongoDB (with Mongoose ODM)
 - **Authentication:** JWT, bcrypt for password hashing
@@ -111,132 +239,10 @@ Explore the live version of Campus Kart: [Campus Kart Live](https://www.loom.com
 - **Payment Integration:** Razorpay
 - **Utilities:** dotenv, UUID, Crypto
 
-## Installation
-
-### Prerequisites
-
-- Node.js (v14+)
-- MongoDB instance (local or Atlas)
-- npm or yarn package manager
-
-### Setup Instructions
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/yourusername/CampusKart.git
-   cd CampusKart/backend
-   ```
-2. **Install Dependencies:**
-   ```bash
-   npm install
-   ```
-3. **Envirnment Variables:**
-  Create a .env file in the backend directory and include the following:
-   ```bash
-   CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-   CLOUDINARY_API_KEY=your_cloudinary_api_key
-   CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-   EMAIL_USER=your_email
-   EMAIL_PASS=your_email_password
-   ATLASDB_URL=your_mongodb_connection_string
-   SECRET=your_session_secret
-   JWT_SECRET=your_jwt_secret
-   ```
-4. **Start the Backend Server:**
-   ```bash
-   npm start
-   ```
-The backend server will run on http://localhost:8080.
-
-## Folder Structure
-
-### Backend 
-
-```bash
-backend/
-│
-├── config/                    # Configuration files (database, environment variables)
-│   ├── db.js                  # Database connection setup
-│   └── config.js              # General app configuration
-│
-├── controllers/               # API route handlers
-│   ├── authController.js      # Handles authentication for sellers and students
-│   ├── productController.js   # Manages seller product operations
-│   ├── orderController.js     # Handles order creation and management (also clears cart)
-│   └── paymentController.js   # Manages payment processing and integration with Razorpay
-│
-├── middleware/                # Custom middleware (authentication, error handling)
-│   ├── verifyJWT.js           # JWT verification middleware
-│   └── errorMiddleware.js     # Global error handling middleware
-│
-├── models/                    # Mongoose models
-│   ├── userModel.js           # User model for sellers and students
-│   ├── productModel.js        # Product model
-│   ├── cartItemModel.js       # Cart item model
-│   └── orderModel.js          # Order model
-│
-├── routes/                    # Express route definitions
-│   ├── authRoutes.js          # Routes for authentication (signup, login, etc.)
-│   ├── productRoutes.js       # Seller product management routes
-│   ├── cartRoutes.js          # Cart management routes
-│   ├── orderRoutes.js         # Order creation and retrieval routes\n   └── paymentRoutes.js       # Payment integration routes
-│
-├── services/                  # Business logic and helper functions
-│   ├── authService.js         # JWT generation and authentication logic
-│   ├── paymentService.js      # Razorpay integration and payment verification logic
-│   └── fileUploadService.js   # File upload logic using Multer and Cloudinary
-│
-├── utils/                     # Utility functions and helpers
-│   ├── jwtUtils.js            # Helper functions for JWT operations
-│   └── logger.js              # Logger for error and request logging
-│
-├── .env                       # Environment variables
-├── .gitignore                 # Git ignore file
-├── server.js                  # Entry point for the backend server
-└── package.json               # Backend dependencies and scripts
-```
-
-### Frontend
-```bash
-frontend/
-│
-├── public/                    # Public assets (images, fonts, etc.)
-│   ├── index.html             # Main HTML file
-│   └── favicon.ico            # Favicon
-│
-├── src/                       # Source code for React app
-│   ├── assets/                # Static assets (images, icons, etc.)
-│   ├── components/            # Reusable components (Header, Footer, Toast, etc.)
-│   ├── context/               # React context for global state management
-│   ├── hooks/                 # Custom hooks
-│   ├── pages/                 # Application pages (Home, Login, Signup, Dashboard, etc.)
-│   ├── redux/                 # Redux store, actions, and reducers
-│   ├── services/              # API service calls (authService, productService, etc.)
-│   ├── styles/                # Tailwind CSS configuration and custom styles
-│   ├── utils/                 # Utility functions (formatDate, validation, etc.)
-│   ├── App.js                 # Main React component
-│   └── index.js               # Entry point for React app
-├── .env                       # Environment variables for frontend
-├── .gitignore                 # Git ignore file
-├── package.json               # Frontend dependencies and scripts
-└── tailwind.config.js         # Tailwind CSS configuration
-```
-
-## Usage
-```bash
-1. Start the Backend Server:
-
-cd CampusKart/backend
-nodemon app.js
-
-2. Start the Frontend Application:
-
-cd CampusKart/frontend
-npm run dev
-
-3. Access the Application:
-Open your browser and navigate to the frontend URL http://localhost:3000
-
-4. Sign Up / Log In:
-Sellers can sign up or log in to manage their products and orders.
-Students can sign up or log in to browse products, add items to their cart, and place orders.
+### Frontend:
+- **Frontend Framework:** React.js
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS, Flowbite
+- **Routing:** React Router
+- **HTTP Client:** Axios
+- **Other Libraries:** SweetAlert, Lucide-react for icons
