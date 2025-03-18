@@ -1,0 +1,294 @@
+.mainFrame {
+    display: flex;
+    padding: 0px 32px;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    flex: 1 0 0;
+    align-self: stretch;
+    margin-top: 15px;
+}
+.mainmain {
+    display: flex;
+    padding: 0px 32px;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    flex: 1 0 0;
+    align-self: stretch;
+    margin-top: 35px;
+    width: 100%;
+}
+.headerFrame {
+    display: flex;
+    padding: 14px 15px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 12px;
+    background: #F7F7F7;
+}
+
+.headerTitle {
+    color: #101010;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.mainFrameDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* gap: 18px; */
+    align-self: stretch;
+}
+
+.mainFrameCardsDiv {
+    /* display: flex; */
+    padding-top: 20px;
+    padding-bottom: 15px;
+    /* align-items: center; */
+    gap: 18px;
+    /* align-self: stretch;  */
+}
+
+.mainFrameCards {
+    display: flex;
+    width: 100%; /* Let the card fill its grid cell */
+    height: 137px;
+    padding: 0px 0px;
+    align-items: flex-start;
+    gap: 5px;
+    border-radius: 15px;
+    border: 1px solid rgba(240, 240, 240, 0.75);
+    background: #FFF;
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.07);
+    transition: box-shadow 1s ease 1s !important;
+}
+.mainFrameCards:hover {
+    display: flex;
+    width: 100%; /* Let the card fill its grid cell */
+    height: 137px;
+    padding: 0px 0px;
+    align-items: flex-start;
+    gap: 5px;
+    border-radius: 15px;
+    border: 1px solid rgba(240, 240, 240, 0.75);
+    background: #FFF;
+    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.08) inset, 0px 4px 30px 0px rgba(0, 0, 0, 0.07);
+}
+
+.mainFrameCardsDivBox12 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1 0 0;
+}
+
+.mainFrameCardsDivBox1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mainFrameCardsDivBox2 {
+    color: #5F5F5F;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px; /* 135.714% */
+    flex: 1 0 0;
+    padding-left: 29px;
+}
+
+.mainFrameCardsHead {
+    color: rgba(16, 16, 16, 0.80);
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.rnpUpper {
+    display: flex;
+    padding: 20px 0px;
+    padding-bottom: 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    align-self: stretch;
+}
+
+.rnpUpperDiv1 {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.rnpUpperDiv23 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+}
+
+.rnpUpperDiv2 {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.rnpUpperDiv3 {
+    color: #434343;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    flex: 1 0 0;
+}
+
+.rnpUpperDiv2IconOuter {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    padding: 11px 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 7px;
+    border: 1px solid #EDEDED;
+    background: #FFF;
+}
+
+.rnpUpperDiv2Icon {
+    width: 12px;
+    height: 8px;
+    flex-shrink: 0;
+}
+
+.rnpUpperDiv2Text {
+    color: #101010;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.rnpUpperDiv11 {
+    color: #434343;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 19.5px */
+}
+
+.rnpUpperDiv12 {
+    width: space-x-4;
+    height: space-x-4;
+}
+
+.rnpUpperDiv13 {
+    color: #6938EF;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 19.5px */
+}
+
+.rnpLower {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    justify-items: start;
+    gap: 22px;
+}
+
+.rnpTableOuter {
+    display: flex;
+    padding: 0px 32px;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    align-self: stretch;
+}
+
+.rnpTable {
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    align-self: stretch;
+    border-radius: 12px;
+    border: 1px solid #F0F0F0;
+}
+
+.rnpTableMain {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 3px;
+    align-self: stretch;
+    /* border-radius: 12px;
+    border: 1px solid #F0F0F0; */
+}
+
+.rnpTableDiv1 {
+    display: flex;
+    padding: 15px 25px;
+    align-items: center;
+    gap: 315px;
+    align-self: stretch;
+}
+
+.rnpTableDiv2345 {
+    display: flex;
+    padding: 10px 25px;
+    align-items: center;
+    gap: 315px;
+    align-self: stretch;
+    border-bottom: 1px solid #F0F0F0;
+    background: #FFF;
+}
+
+.rnpTableLower {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.rnpTableLowerText {
+    color: #6938EF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: 22%; /* 3.3px */
+    text-underline-position: from-font;
+}
+
+.rnpTableLowerIcon {
+    width: 20px;
+    height: 20px;
+    aspect-ratio: 1/1;
+}

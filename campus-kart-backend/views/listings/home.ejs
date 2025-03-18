@@ -1,0 +1,151 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<style>
+    /* Custom styles for the welcome page */
+    .hero-section {
+        background-image: url('https://assets.techrepublic.com/uploads/2022/10/tr-saas-software-as-a-service-what-1024x605.jpeg'); /* Replace with actual background image */
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 100px 0;
+        border-radius: 20px;
+    }
+
+    .hero-section h1 {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-section p {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-section .btn {
+        background-color: #66FCF1;
+        border: none;
+        padding: 10px 25px;
+        transition: transform 0.3s ease;
+    }
+
+    .hero-section .btn:hover {
+        transform: scale(1.05);
+        background-color: #45A29E;
+    }
+
+    /* Features Section */
+    .features-section .card {
+        border: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .features-section .card:hover {
+        transform: translateY(-10px);
+    }
+
+    .features-section .fa {
+        color: #66FCF1;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section blockquote {
+        font-size: 1.1rem;
+        color: #333;
+    }
+
+    .testimonials-section .blockquote-footer {
+        color: #666;
+    }
+
+    /* Button Links */
+    .btn-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .btn-link:hover {
+        text-decoration: none;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section text-center">
+        <h1 class="display-4 fw-bold">Welcome to SaaSify</h1>
+        <p class="lead">Your ultimate destination for Software as a Service. Explore top-tier services and solutions for your business needs.</p>
+        <a href="/listings" class="btn btn-lg btn-link">Explore Services &#8594;</a>
+    </div>
+
+    <br/><br/>
+
+    <!-- Features Section -->
+    <div class="container features-section my-5">
+        <h2 class="text-center mb-4">Why Choose SaaSify?</h2>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fa fa-globe fa-3x mb-3"></i>
+                        <h5 class="card-title">Global Access</h5>
+                        <p class="card-text">Access services from anywhere in the world, tailored to meet your specific needs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fa fa-shield fa-3x mb-3"></i>
+                        <h5 class="card-title">Secure and Reliable</h5>
+                        <p class="card-text">We ensure the highest level of security and performance for your data and applications.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fa fa-users fa-3x mb-3"></i>
+                        <h5 class="card-title">Expert Support</h5>
+                        <p class="card-text">Our support team is always available to help you get the most out of our services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="container testimonials-section my-5">
+        <h2 class="text-center mb-4">What Our Users Say</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>"SaaSify transformed how we manage our business. Highly recommended!"</p>
+                            <footer class="blockquote-footer">John Doe, CEO of Example Corp</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>"Amazing platform with excellent support. It saved us a lot of time!"</p>
+                            <footer class="blockquote-footer">Jane Smith, Founder of StartupXYZ</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>"The best place to find SaaS services. We've been using it for a year now."</p>
+                            <footer class="blockquote-footer">Emily Adams, Product Manager</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

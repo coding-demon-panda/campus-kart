@@ -1,0 +1,37 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Active Auctions</h2>
+
+    <% if (auctions.length === 0) { %>
+        <div class="alert alert-info text-center py-4">
+            <p>No active auctions at the moment. <a href="/listings" class="fw-bold text-decoration-none">Browse listings</a> to add items for future auctions.</p>
+        </div>
+    <% } else { %>
+        <div class="row">
+            <% auctions.forEach(auction => { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="<%= auction.itemImage %>" class="card-img-top" alt="<%= auction.itemName %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= auction.itemName %></h5>
+                            <p class="card-text">Current Bid: $<%= auction.currentBid %></p>
+                            <p class="card-text">Auction Ends In: <%= auction.timeLeft %> minutes</p>
+                            <form action="/auction/bid" method="POST">
+                                <input type="hidden" name="auctionId" value="<%= auction._id %>">
+                                <input type="number" name="bidAmount" class="form-control mb-2" min="<%= auction.currentBid + 1 %>" placeholder="Enter your bid" required>
+                                <button type="submit" class="btn btn-primary">Place Bid</button>
+                            </form>
+                            <h6 class="mt-4">Bids:</h6>
+                            <ul class="list-group">
+                                <% auction.bids.forEach(bid => { %>
+                                    <li class="list-group-item"><%= bid.user %>: $<%= bid.amount %></li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    <% } %>
+</div>

@@ -1,0 +1,40 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Best Quotes</h2>
+
+    <% if (quotes.length === 0) { %>
+        <div class="alert alert-warning text-center">No quotes received.</div>
+    <% } else { %>
+        <div class="table-responsive">
+            <form id="acceptQuoteForm" method="GET" action="/checkout/<%= listing._id %>">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>Service</th>
+                            <th>Quote</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% quotes.forEach((item, index) => { %>
+                            <tr>
+                                <td>
+                                    <input type="radio" name="selectedService" id="service-<%= index %>" value="<%= item.title %>" required>
+                                </td>
+                                <td>
+                                    <label for="service-<%= index %>"><%= item.title %></label>
+                                </td>
+                                <td>$<%= Math.min(...Object.values(item.quotes)) %></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+
+                <div class="text-center mt-4">
+                    <input type="hidden" name="acceptedQuote" value="<%= Math.min(...quotes.map(q => Math.min(...Object.values(q.quotes)))) %>">
+                    <button type="submit" class="btn btn-primary btn-lg">Accept and Pay</button>
+                </div>
+            </form>
+        </div>
+    <% } %>
+</div>

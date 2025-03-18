@@ -1,0 +1,80 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h2>Checkout</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h4><%= listing.title %></h4>
+                    <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image">
+                    <p><strong>Owner:</strong> <%= listing.owner.username %></p>
+                    <p><strong>Description:</strong> <%= listing.description %></p>
+                    <p><strong>Price:</strong> $<%= listing.price %> per user/month</p>
+                    <p><strong>Location:</strong> <%= listing.location %>, <%= listing.country %></p>
+                </div>
+            </div>  
+
+            <h3 class="mt-4">Payment Information</h3>
+            <br/>
+            <!-- Display the selected quote if available, otherwise display the listing price -->
+            <h5>Payment to be done: $<%= acceptedQuote ? acceptedQuote : listing.price %></h5>
+            <br/>
+            <form action="/purchase" method="POST" novalidate class="needs-validation">
+                <input type="hidden" name="listingId" value="<%= listing._id %>">
+                <input type="hidden" name="finalPrice" value="<%= acceptedQuote ? acceptedQuote : listing.price %>">
+
+                <div class="mb-3">
+                    <label for="cardName" class="form-label">Name on Card</label>
+                    <input type="text" class="form-control" id="cardName" name="cardName" required>
+                    <div class="invalid-feedback">
+                        Please enter the name on the card.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cardNumber" class="form-label">Card Number</label>
+                    <input type="text" class="form-control" id="cardNumber" name="cardNumber" required>
+                    <div class="invalid-feedback">
+                        Please enter your card number.
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <label for="expiry" class="form-label">Expiry Date</label>
+                        <input type="text" class="form-control" id="expiry" name="expiry" placeholder="MM/YY" required>
+                        <div class="invalid-feedback">
+                            Please enter the expiry date.
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="cvv" class="form-label">CVV</label>
+                        <input type="text" class="form-control" id="cvv" name="cvv" required>
+                        <div class="invalid-feedback">
+                            Please enter the CVV.
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success">Complete Purchase</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Example of adding Bootstrap validation for the form
+    (function () {
+        'use strict'
+        const forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>

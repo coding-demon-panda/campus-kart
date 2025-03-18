@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/home" aria-label="Home">
+            <i class="fa-regular fa-compass"></i>
+            <!-- <img src="logo.png" alt="Logo" class="logo"> -->
+        </a>
+        <button 
+            class="navbar-toggler" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNavAltMarkup" 
+            aria-controls="navbarNavAltMarkup" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/home">Home</a>
+                <a class="nav-link" href="/listings">All Softwares</a>
+                <a class="nav-link" href="/listings/new">Add New Software</a>
+            </div>
+            <div class="navbar-nav ms-auto">
+                <% if(!currUser) { %>
+                    <a class="nav-link" href="/signup">Sign Up</a>
+                    <a class="nav-link" href="/login">Log In</a>
+                <% } else { %>
+                    <a class="nav-link" href="/cart">My Cart</a>
+                    <a class="nav-link" href="/logout">Log Out</a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</nav>
+<br/><br/><br/>

@@ -1,0 +1,220 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+
+.navbar {
+    /* height: 5rem; */
+    background-color: white;
+}
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2 rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+}
+
+/*Footer*/
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-links, .f-info-brand, .f-info-socials {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/*Cards*/
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: contain !important;
+}
+
+.card-text p {
+    font-weight: 400;
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+/* Card Effect (Overlay Effect) */
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+
+/*New Page*/
+.add-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/*Edit Page*/
+.edit-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* Show Page */
+.show-img {
+    height: 30vh;
+}
+
+.btns {
+    display: flex;
+}
+
+.show-card .card-body{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.show-card {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* footer */
+.footer {
+    background-color: #1f2833; /* Dark background */
+    color: #c5c6c7; /* Light text color */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px; /* Max width for larger screens */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Padding for small screens */
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center elements */
+}
+
+.footer-socials {
+    margin-bottom: 10px; /* Space between socials and other elements */
+}
+
+.social-icon {
+    margin: 0 10px; /* Space between icons */
+    color: #66fcf1; /* Color for icons */
+    transition: color 0.3s; /* Transition effect */
+}
+
+.social-icon:hover {
+    color: #45a29e; /* Hover color */
+}
+
+.footer-brand {
+    font-weight: bold; /* Bold brand text */
+    margin-bottom: 10px; /* Space below brand */
+}
+
+.footer-links {
+    display: flex; /* Flex for horizontal layout */
+    justify-content: center; /* Center links */
+}
+
+.footer-link {
+    margin: 0 15px; /* Space between links */
+    color: #c5c6c7; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+.footer-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+/* navbar */
+.navbar {
+    background-color: #1f2833; /* Dark background */
+    padding: 15px 20px; /* Padding for a better look */
+}
+
+.navbar-brand {
+    color: #66fcf1; /* Brand icon color */
+}
+
+.nav-link {
+    color: #c5c6c7; /* Link color */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.nav-link:hover {
+    color: #45a29e; /* Hover color */
+}
+
+.navbar-toggler {
+    border-color: #c5c6c7; /* Toggler border color */
+}
+
+.navbar-toggler-icon {
+    background-color: #66fcf1; /* Toggler icon color */
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column; /* Stack links vertically on smaller screens */
+    }
+}
+
+/* In your CSS file */
+.listing-card {
+    border: 2px solid #66FCF1; /* You can change the color */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for hover */
+}
+
+.listing-card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}

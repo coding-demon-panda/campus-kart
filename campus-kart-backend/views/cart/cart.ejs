@@ -1,0 +1,151 @@
+<style>
+    /* Custom styles for the cart page */
+    .cart-item-card {
+        border: none;
+        transition: transform 0.3s ease-in-out;
+        position: relative;
+    }
+
+    .cart-item-card:hover {
+        transform: scale(1.05);
+    }
+
+    .cart-item-card img {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .card-title {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .btn-success {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+    }
+
+    h4 {
+        color: #333;
+        font-weight: 600;
+    }
+
+    h2 {
+        color: #45A29E; /* Adjust this to your preferred palette */
+        font-weight: bold;
+    }
+
+    .alert {
+        background-color: #f0f8ff;
+        border: 1px solid #66FCF1;
+    }
+
+    /* Selected item styling */
+    .selected {
+        border: 2px solid #45A29E; /* Change the border color when selected */
+        background-color: rgba(69, 162, 158, 0.1); /* Light background for selected items */
+    }
+
+    /* Styled Purchase Button */
+    .btn-purchase {
+        background-color: #66FCF1;
+        color: #0B0C10;
+        padding: 12px 25px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
+        margin-top: 15px; /* Add margin for spacing */
+    }
+
+    .btn-purchase:hover {
+        background-color: #45A29E; /* Darker shade on hover */
+        transform: scale(1.05); /* Slight scale effect */
+    }
+
+    .btn-purchase:focus {
+        outline: none; /* Remove outline on focus */
+    }
+</style>
+
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">My Cart</h2>
+    <h5 class="text-center">Select any 3 to start the bidding.</h5>
+    <% if (cartItems.length === 0) { %>
+        <div class="alert alert-info text-center py-4">
+            <p>Your cart is empty. <a href="/listings" class="fw-bold text-decoration-none">Browse listings</a> to add items to your cart.</p>
+        </div>
+    <% } else { %>
+        <div class="row justify-content-center">
+            <% cartItems.forEach(item => { %>
+                <div class="card col-md-3 mx-3 mb-4 cart-item-card shadow-sm" id="item-<%= item._id %>">
+                    <img src="<%= item.image.url %>" class="card-img-top rounded-top" alt="<%= item.title %>">
+                    <div class="card-body">
+                        <h5 class="card-title text-center"><%= item.title %></h5>
+                        <p class="card-text text-center text-muted">$<%= item.price %> per user/month</p>
+                        <form method="POST" action="/cart/remove/<%= item._id %>" class="d-grid gap-2">
+                            <button class="btn btn-danger btn-sm">Remove from Cart</button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12 text-center">
+                <form id="biddingForm" method="POST" action="/auction/start" class="d-inline">
+                    <input type="hidden" name="selectedItems" id="selectedItems" value="">
+                    <button class="btn btn-success btn-lg mt-3" id="startAuctionBtn" disabled>Let the Bidding Start</button>
+                </form>
+                <div class = "col-12 ml-4">
+                    <hr/>
+                    <h4>Total: $<%= cartItems.reduce((total, item) => parseInt(total) + parseInt(item.price), 0) %> per user/month</h4>
+                    <button class = "btn-purchase"><a href = "/checkout" class="text-dark" style="text-decoration: none3;">Purchase all</a></button>
+                    <br/>
+                </div>
+            </div>
+        </div>
+        
+        <br/>
+    <% } %>
+</div>
+
+<script>
+    const auctionButton = document.getElementById('startAuctionBtn');
+    const cartItemCards = document.querySelectorAll('.cart-item-card');
+    const selectedItemsInput = document.getElementById('selectedItems');
+    let selectedCount = 0;
+    let selectedItems = [];
+
+    cartItemCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const isSelected = card.classList.toggle('selected');
+            const itemId = card.id.split('-')[1];
+
+            selectedCount += isSelected ? 1 : -1;
+
+            auctionButton.disabled = selectedCount === 0 || selectedCount > 3 || selectedCount === 1;
+
+            if (isSelected) {
+                selectedItems.push(itemId);
+            } else {
+                selectedItems = selectedItems.filter(item => item !== itemId);
+            }
+
+            // Update the hidden input with selected items
+            selectedItemsInput.value = selectedItems.join(',');
+        });
+    });
+
+    auctionButton.addEventListener('click', (event) => {
+        if (selectedCount > 0 && selectedCount <= 3) {
+            document.getElementById('biddingForm').submit();
+        } else {
+            event.preventDefault();
+        }
+    });
+</script>
