@@ -5,6 +5,7 @@ Campus Kart is a college-centric grocery delivery system that connects grocery s
 ## Live 
 
 Explore the live version of Campus Kart: 
+
 [Campus Kart Live](https://campus-kart-frontend.vercel.app)
 
 [Campus Kart Backend](https://campus-kart-backend.onrender.com)
@@ -119,54 +120,54 @@ Students can sign up or log in to browse products, add items to their cart, and 
 -- Production https://campus-kart-frontend.vercel.app
 
 ### Unauthenticated Routes
-1. **`{BASE_URL}/** 
+1. **`{BASE_URL}/`** 
    Landing Page
 
-2. **`{BASE_URL}/home** 
+2. **`{BASE_URL}/home`** 
    Home Page (common to both sellers and students)
 
-3. **`{BASE_URL}/signup** 
+3. **`{BASE_URL}/signup`** 
    Signup Page for sellers to register their shops 
 
-4. **`shop-name.{BASE_URL}/login** 
+4. **`shop-name.{BASE_URL}/login`** 
    Login Page for the sellers for their shop
 
-5. **`{BASE_URL}/usersignup** 
+5. **`{BASE_URL}/usersignup`** 
    Signup Page for students to register with their college id 
 
-6. **`{BASE_URL}/userlogin** 
+6. **`{BASE_URL}/userlogin`** 
    Login Page for the students 
 
-7. **`{BASE_URL}/terms-conditions** 
+7. **`{BASE_URL}/terms-conditions`** 
    TNC Page for the webapp
 
 ### Seller Authenticated Routes
-8. **`shop-name.{BASE_URL}/dashboard** 
+8. **`shop-name.{BASE_URL}/dashboard`** 
    Dashboard showing summary of the sellers shop
 
-9. **`shop-name.{BASE_URL}/order-pending** 
+9. **`shop-name.{BASE_URL}/order-pending`** 
    Shows all the pending orders
    
-10. **`shop-name.{BASE_URL}/order-history** 
+10. **`shop-name.{BASE_URL}/order-history`** 
    Shows the order history 
 
-11. **`shop-name.{BASE_URL}/integrations** 
+11. **`shop-name.{BASE_URL}/integrations`** 
    Shows all the products provided by him with their details like price, description, name, quantity, etc.
 
-12. **`shop-name.{BASE_URL}/promotions** 
+12. **`shop-name.{BASE_URL}/promotions`** 
    Shows the offers given by him on certain orders based on filters.
 
 ### Student Authenticated Routes
-13. **`{BASE_URL}/students/dashboard** 
+13. **`{BASE_URL}/students/dashboard`** 
    Shows all the products provided by all the customers.
 
-14. **`{BASE_URL}/students/cart** 
+14. **`{BASE_URL}/students/cart`** 
    Shows all the products in the cart with more functionalities like checkout, editing quantities, delete from cart etc.
 
-15. **`{BASE_URL}/students/checkout** 
+15. **`{BASE_URL}/students/checkout`** 
    Checkout page where a form with address(location autofill), payment mode, and delivery slot has to be filled.
 
-16. **`{BASE_URL}/students/orders** 
+16. **`{BASE_URL}/students/orders`** 
    Shows all the checkouts done by him, the pending and the order history both.
 
 ## REST API Endpoints
